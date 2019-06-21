@@ -104,7 +104,7 @@
 			// alert(data);
 			// 获取到服务端响应回的数据，经过观察data中存放的是JSON格式的数组，遍历数组，动态显示分类区域代码
 			$.each(data, function(i, obj){
-				var li = "<li><a href='#'>" + obj.cname+ "</a></li>";
+				var li = "<li><a href='/store_v5/ProductServlet?method=findProductsByCidWithPage&num=1&cid=" + obj.cid + "'+ >" + obj.cname+ "</a></li>";
 				$("#myUL").append(li);
 			});
 		}, "json");
