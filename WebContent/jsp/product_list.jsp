@@ -48,12 +48,12 @@ body {
 		<c:if test="${not empty page.list }">
 			<c:forEach items="${page.list }" var="p">
 				<div class="col-md-2">
-					<a href="${pageContext.request.contextPath}/jsp/product_info.jsp">
+					<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}">
 						<img src="${pageContext.request.contextPath}/${p.pimage}"
 						width="170" height="170" style="display: inline-block;">
 					</a>
 					<p>
-						<a href="${pageContext.request.contextPath}/jsp/product_info.jsp"
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}"
 							style='color: green'>${p.pname }</a>
 					</p>
 					<p>
