@@ -71,7 +71,7 @@ public class Cart
 		this.total = total;
 	}
 	
-	public Collection getCartItems()
+	public Collection<CartItem> getCartItems()
 	{
 		return map.values();
 	}

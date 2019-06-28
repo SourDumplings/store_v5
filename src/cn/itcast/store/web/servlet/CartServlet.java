@@ -46,28 +46,29 @@ public class CartServlet extends BaseServlet
 		resp.sendRedirect("/store_v5/jsp/cart.jsp");
 		return null;
 	}
-	
+
 	// 删除购物项到购物车
 	public String removeCartItem(HttpServletRequest req, HttpServletResponse resp) throws Exception
 	{
-//		获取待删除的商品id
+		// 获取待删除的商品id
 		String pid = req.getParameter("pid");
-//		获取购物车
+		// 获取购物车
 		Cart cart = (Cart) req.getSession().getAttribute("cart");
-//		调用购物车的清空方法
+		// 调用购物车的清空方法
 		cart.removeCartItem(pid);
-//		重定向到/jsp/cart.jsp页面
+		// 重定向到/jsp/cart.jsp页面
 		resp.sendRedirect("/store_v5/jsp/cart.jsp");
 		return null;
 	}
+
 	// 清空购物车
 	public String clearCart(HttpServletRequest req, HttpServletResponse resp) throws Exception
 	{
-//		获取购物车
+		// 获取购物车
 		Cart cart = (Cart) req.getSession().getAttribute("cart");
-//		调用购物车的清空方法
+		// 调用购物车的清空方法
 		cart.clearCart();
-//		重定向到/jsp/cart.jsp页面
+		// 重定向到/jsp/cart.jsp页面
 		resp.sendRedirect("/store_v5/jsp/cart.jsp");
 		return null;
 	}

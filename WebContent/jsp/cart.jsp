@@ -103,7 +103,7 @@ font {
 					<a
 						href="${pageContext.request.contextPath}/CartServlet?method=clearCart"
 						id="clear" class="clear">清空购物车</a> <a
-						href="${pageContext.request.contextPath}/jsp/order_info.jsp">
+						href="${pageContext.request.contextPath}/OrderServlet?method=saveOrder">
 						<%--提交表单 --%> <input type="submit" width="100" value="提交订单"
 						name="submit" border="0"
 						style="background: url('${pageContext.request.contextPath}/img/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -120,17 +120,20 @@ font {
 
 <script type="text/javascript">
 	// 页面加载完毕之后获取到class的值为delete元素，为其绑定点击事件
-	$(".delete").click(function() {
-		if (confirm("确认删除？")) {
-			// 获取到删除商品pid
-			var pid = this.id;
-			window.location.href="/store_v5/CartServlet?method=removeCartItem&pid=" + pid;
-		}
-	});
+	$(".delete")
+			.click(
+					function() {
+						if (confirm("确认删除？")) {
+							// 获取到删除商品pid
+							var pid = this.id;
+							window.location.href = "/store_v5/CartServlet?method=removeCartItem&pid="
+									+ pid;
+						}
+					});
 	$(".clear").click(function() {
 		if (confirm("确认清空？")) {
 			// 获取到删除商品pid
-			window.location.href="/store_v5/CartServlet?method=clearCart";
+			window.location.href = "/store_v5/CartServlet?method=clearCart";
 		}
 	});
 </script>
