@@ -1,4 +1,4 @@
-package cn.itcast.store.utils;
+package cn.itcast.store.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,15 +124,24 @@ public class PageModel {
 		this.startIndex = startIndex;
 	}
 
-	public int getPrePageNum() {
-		return prePageNum;
-	}
 
 	public void setPrePageNum(int prePageNum) {
 		this.prePageNum = prePageNum;
 	}
 
+	public int getPrePageNum() {
+		prePageNum = currentPageNum-1;
+		if(prePageNum<1){
+			prePageNum = 1;
+		}
+		return currentPageNum;
+	}
+
 	public int getNextPageNum() {
+		nextPageNum = currentPageNum+1;
+		if(nextPageNum>totalPageNum){
+			nextPageNum = totalPageNum;
+		}
 		return nextPageNum;
 	}
 

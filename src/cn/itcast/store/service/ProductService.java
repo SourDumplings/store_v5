@@ -2,8 +2,8 @@ package cn.itcast.store.service;
 
 import java.util.List;
 
+import cn.itcast.store.domain.PageModel;
 import cn.itcast.store.domain.Product;
-import cn.itcast.store.utils.PageModel;
 
 public interface ProductService
 {

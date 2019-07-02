@@ -9,6 +9,7 @@ import cn.itcast.store.domain.Cart;
 import cn.itcast.store.domain.CartItem;
 import cn.itcast.store.domain.Order;
 import cn.itcast.store.domain.OrderItem;
+import cn.itcast.store.domain.PageModel;
 import cn.itcast.store.domain.User;
 import cn.itcast.store.service.OrderService;
 import cn.itcast.store.service.serviceImpl.OrderServiceImpl;
@@ -61,5 +62,23 @@ public class OrderServlet extends BaseServlet {
 		req.setAttribute("order", order);
 		// 转发/jsp/order_info.jsp
 		return "/jsp/order_info.jsp";
+	}
+	
+	// 默认方法
+	public String findMyOrdersWithPage(HttpServletRequest req, HttpServletResponse resp) throws Exception
+	{
+		// 获取用户信息
+		User user = (User) req.getSession().getAttribute("loginUser");
+		// 获取当前页
+		int curNum = Integer.parseInt(req.getParameter("num"));
+		// 调用业务层功能：查询当前用户订单信息，返回PageModel
+		OrderService orderService = new OrderServiceImpl();
+		// select * from orders where uid=? limit ?, ?
+		// pm上携带：分页参数、url、当前用户的当前页的订单（集合），每笔订单上对应的订单项以及订单项上的商品信息
+		PageModel pm = orderService.findMyOrdersWithPage(user, curNum);
+		// 将PageModel放入request
+		req.setAttribute("page", pm);
+		// 转发到/jsp/order_list.jsp
+		return "/jsp/order_list.jsp";
 	}
 }

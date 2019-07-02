@@ -4,9 +4,9 @@ import java.util.List;
 
 import cn.itcast.store.dao.ProductDao;
 import cn.itcast.store.dao.daoImpl.ProductDaoImpl;
+import cn.itcast.store.domain.PageModel;
 import cn.itcast.store.domain.Product;
 import cn.itcast.store.service.ProductService;
-import cn.itcast.store.utils.PageModel;
 
 public class ProductServiceImpl implements ProductService
 {

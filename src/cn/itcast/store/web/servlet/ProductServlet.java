@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.itcast.store.domain.PageModel;
 import cn.itcast.store.domain.Product;
 import cn.itcast.store.service.ProductService;
 import cn.itcast.store.service.serviceImpl.ProductServiceImpl;
-import cn.itcast.store.utils.PageModel;
 import cn.itcast.store.web.base.BaseServlet;
 
 /**
