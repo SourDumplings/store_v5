@@ -75,6 +75,12 @@ public class OrderServiceImpl implements OrderService
 		pm.setUrl("OrderServlet?method=findMyOrdersWithPage");
 		return pm;
 	}
+
+	public Order findOrderByOid(String oid) throws Exception
+	{
+		// TODO Auto-generated method stub
+		return orderDao.findOrderByOid(oid);
+	}
 	
 	
 }

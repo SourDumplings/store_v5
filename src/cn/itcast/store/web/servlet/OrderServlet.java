@@ -64,7 +64,6 @@ public class OrderServlet extends BaseServlet {
 		return "/jsp/order_info.jsp";
 	}
 	
-	// 默认方法
 	public String findMyOrdersWithPage(HttpServletRequest req, HttpServletResponse resp) throws Exception
 	{
 		// 获取用户信息
@@ -80,5 +79,19 @@ public class OrderServlet extends BaseServlet {
 		req.setAttribute("page", pm);
 		// 转发到/jsp/order_list.jsp
 		return "/jsp/order_list.jsp";
+	}
+	
+	// 默认方法
+	public String findOrderByOid(HttpServletRequest req, HttpServletResponse resp) throws Exception
+	{
+		// 获取订单oid
+		String oid = req.getParameter("oid");
+		// 调用业务层功能
+		OrderService orderService = new OrderServiceImpl();
+		Order order = orderService.findOrderByOid(oid);
+		// 将订单放入request
+		req.setAttribute("order", order);
+		// 转发到订单详情页
+		return "/jsp/order_info.jsp";
 	}
 }
