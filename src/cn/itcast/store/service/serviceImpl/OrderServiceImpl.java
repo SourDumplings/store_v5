@@ -81,6 +81,12 @@ public class OrderServiceImpl implements OrderService
 		// TODO Auto-generated method stub
 		return orderDao.findOrderByOid(oid);
 	}
+
+	public void updateOrder(Order order) throws Exception
+	{
+		// TODO Auto-generated method stub
+		orderDao.updateOrder(order);
+	}
 	
 	
 }

@@ -15,4 +15,6 @@ public interface OrderService
 
 	Order findOrderByOid(String oid) throws Exception;
 
+	void updateOrder(Order order) throws Exception;
+
 }

@@ -20,4 +20,6 @@ public interface OrderDao
 
 	Order findOrderByOid(String oid) throws Exception;
 
+	void updateOrder(Order order) throws Exception;
+
 }
