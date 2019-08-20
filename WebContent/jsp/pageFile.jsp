@@ -5,6 +5,8 @@
     		第${page.currentPageNum}页 / 共${page.totalPageNum}页
     		
     		<!-- <a href="/store_v5/ProductServlet?method=findProductsByCidWithPage&cid=1&num=1">首页</a> -->
+    		<%-- <a href="${pageContext.request.contextPath}/AdminProductServlet?methiod=findAllProductsWithPage&num=1">首页</a> --%>
+    		
     		<a href="${pageContext.request.contextPath}/${page.url}&num=1">首页</a>
     		<a href="${pageContext.request.contextPath}/${page.url}&num=${page.prePageNum}">上一页</a>
     		<%--显示的页码，使用forEach遍历显示的页面 --%>

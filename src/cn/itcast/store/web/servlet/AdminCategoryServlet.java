@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.itcast.store.domain.Category;
 import cn.itcast.store.service.CategoryService;
 import cn.itcast.store.service.serviceImpl.CategoryServiceImpl;
+import cn.itcast.store.utils.UUIDUtils;
 import cn.itcast.store.web.base.BaseServlet;
 
 /**
@@ -29,5 +30,27 @@ public class AdminCategoryServlet extends BaseServlet {
 		// 转发到/admin/category/list.jsp
 		
 		return "/admin/category/list.jsp";
+	}
+	
+	public String addCategoryUI(HttpServletRequest req, HttpServletResponse resp) throws Exception
+	{		
+		return "/admin/category/add.jsp";
+	}
+	
+	public String addCategory(HttpServletRequest req, HttpServletResponse resp) throws Exception
+	{
+		// 获取分类的名称
+		String cname = req.getParameter("cname");
+		// 创建分类的id
+		String cid = UUIDUtils.getId();
+		Category c = new Category();
+		c.setCid(cid);
+		c.setCname(cname);
+		// 调用业务层功能
+		CategoryService categoryService = new CategoryServiceImpl();
+		categoryService.addCategory(c);
+		// 重定向到查询全部分类的信息
+		resp.sendRedirect("/store_v5/AdminCategoryServlet?method=findAllCats");
+		return null;
 	}
 }

@@ -54,7 +54,33 @@ public class ProductDaoImpl implements ProductDao
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class), cid, startIndex, pageSize);
 	}
-	
-	
+
+	public int findTotalRecords() throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "select count(*) from product";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long) qr.query(sql, new ScalarHandler());
+		return num.intValue();
+	}
+
+	public List<Product> findAllProductsWithPage(int startIndex, int pageSize) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "select * from product order by pdate desc limit ?, ?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class), startIndex, pageSize);
+	}
+
+	public void saveProduct(Product product) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "insert into product values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params =
+		{ product.getPid(), product.getPname(), product.getMarket_price(), product.getShop_price(), product.getPimage(),
+				product.getPdate(), product.getIs_hot(), product.getPdesc(), product.getPflag(), product.getCid()};
+		qr.update(sql, params);
+	}
 
 }

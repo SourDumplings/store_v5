@@ -45,4 +45,27 @@ public class ProductServiceImpl implements ProductService
 		return pageModel;
 	}
 
+	public PageModel findAllProductsWithPage(int curNum) throws Exception
+	{
+		// TODO Auto-generated method stub
+		// 1.创建PageModel对象：计算分页参数
+		int totalRecords = productDao.findTotalRecords();
+		PageModel pageModel = new PageModel(curNum, 5, totalRecords);
+		// 2.关联集合
+		List<Product> list = productDao.findAllProductsWithPage(pageModel.getCurrentPageNum(), pageModel.getPageSize());
+		pageModel.setList(list);
+		// 3.关联URL
+		pageModel.setUrl("AdminProductServlet?method=findAllProductsWithPage");
+		return pageModel;
+	}
+
+	public void saveProduct(Product product) throws Exception
+	{
+		// TODO Auto-generated method stub
+		productDao.saveProduct(product);
+		
+	}
+	
+	
+
 }

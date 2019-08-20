@@ -10,8 +10,9 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/public.js"></script>
 <script type="text/javascript">
-	function addCategory() {
-		window.location.href = "${pageContext.request.contextPath}/admin/category/add.jsp";
+	function addCategory()
+	{
+		window.location.href = "${pageContext.request.contextPath}/AdminCategoryServlet?method=addCategoryUI";
 	}
 </script>
 </HEAD>
@@ -27,8 +28,7 @@
 			<tr>
 				<td class="ta_01" align="right">
 					<button type="button" id="add" name="add" value="添加"
-						class="button_add" onclick="addCategory()">
-						&#28155;&#21152;</button>
+						class="button_add" onclick="addCategory()">&#28155;&#21152;</button>
 
 				</td>
 			</tr>
@@ -49,7 +49,7 @@
 							varStatus:代表循环过程中存储的临时状态值
 							status.count：代表当前输出元素的个数 
 						 -->
- 						<c:forEach items="${allCats}" var="c" varStatus="status">
+						<c:forEach items="${allCats}" var="c" varStatus="status">
 							<tr onmouseover="this.style.backgroundColor = 'white'"
 								onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
