@@ -141,6 +141,20 @@ public class OrderDaoImpl implements OrderDao
 		Object[] params = {order.getOrdertime(), order.getTotal(), order.getState(), order.getAddress(), order.getName(), order.getTelephone(), order.getOid()};
 		qr.update(sql, params );
 	}
+
+	public List<Order> findAllOrders() throws Exception
+	{
+		String sql = "select * from orders";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Order>(Order.class));
+	}
+
+	public List<Order> findAllOrders(String state) throws Exception
+	{
+		String sql = "select * from orders where state=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Order>(Order.class), state);
+	}
 	
 	
 

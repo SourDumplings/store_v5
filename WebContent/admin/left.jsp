@@ -67,35 +67,35 @@
 										'010501',
 										'0105',
 										'订单管理',
-										'${pageContext.request.contextPath}/admin/order/list.jsp',
+										'${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders',
 										'', 'mainFrame');
 						d
 								.add(
 										'010502',
 										'0105',
 										'未付款的订单',
-										'${pageContext.request.contextPath}/admin/order/list.jsp?state=1',
+										'${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=1',
 										'', 'mainFrame');
 						d
 								.add(
 										'010503',
 										'0105',
 										'已付款订单',
-										'${pageContext.request.contextPath}/admin/order/list.jsp?state=2',
+										'${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=2',
 										'', 'mainFrame');
 						d
 								.add(
 										'010504',
 										'0105',
 										'已发货的订单',
-										'${pageContext.request.contextPath}/admin/order/list.jsp?state=3',
+										'${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=3',
 										'', 'mainFrame');
 						d
 								.add(
 										'010505',
 										'0105',
 										'已完成的订单',
-										'${pageContext.request.contextPath}/admin/order/list.jsp?state=4',
+										'${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=4',
 										'', 'mainFrame');
 
 						d.add('0106', '01', '用户管理');

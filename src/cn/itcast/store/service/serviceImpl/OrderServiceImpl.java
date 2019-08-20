@@ -87,6 +87,18 @@ public class OrderServiceImpl implements OrderService
 		// TODO Auto-generated method stub
 		orderDao.updateOrder(order);
 	}
+
+	public List<Order> findAllOrders() throws Exception
+	{
+		// TODO Auto-generated method stub
+		return orderDao.findAllOrders();
+	}
+
+	public List<Order> findAllOrders(String state) throws Exception
+	{
+		// TODO Auto-generated method stub
+		return orderDao.findAllOrders(state);
+	}
 	
 	
 }

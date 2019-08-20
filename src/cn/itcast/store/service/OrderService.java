@@ -1,6 +1,7 @@
 package cn.itcast.store.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import cn.itcast.store.domain.Order;
 import cn.itcast.store.domain.PageModel;
@@ -16,5 +17,9 @@ public interface OrderService
 	Order findOrderByOid(String oid) throws Exception;
 
 	void updateOrder(Order order) throws Exception;
+
+	List<Order> findAllOrders() throws Exception;
+
+	List<Order> findAllOrders(String state) throws Exception;
 
 }
