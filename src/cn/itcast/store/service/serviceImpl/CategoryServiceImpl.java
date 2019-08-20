@@ -3,15 +3,15 @@ package cn.itcast.store.service.serviceImpl;
 import java.util.List;
 
 import cn.itcast.store.dao.CategoryDao;
-import cn.itcast.store.dao.daoImpl.CategoryDaoImpl;
 import cn.itcast.store.domain.Category;
 import cn.itcast.store.service.CategoryService;
+import cn.itcast.store.utils.BeanFactory;
 import cn.itcast.store.utils.JedisUtils;
 import redis.clients.jedis.Jedis;
 
 public class CategoryServiceImpl implements CategoryService
 {
-	CategoryDao categoryDao = new CategoryDaoImpl();
+	CategoryDao categoryDao = (CategoryDao) BeanFactory.createObject("CategoryDao");
 	
 	public List<Category> getAllCats() throws Exception
 	{

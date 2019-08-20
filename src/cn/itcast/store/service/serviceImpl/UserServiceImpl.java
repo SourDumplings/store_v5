@@ -3,17 +3,17 @@ package cn.itcast.store.service.serviceImpl;
 import java.sql.SQLException;
 
 import cn.itcast.store.dao.UserDao;
-import cn.itcast.store.dao.daoImpl.UserDaoImpl;
 import cn.itcast.store.domain.User;
 import cn.itcast.store.service.UserService;
+import cn.itcast.store.utils.BeanFactory;
 
 public class UserServiceImpl implements UserService
 {
-
+	UserDao userDao = (UserDao) BeanFactory.createObject("UserDao");
+	
 	public void userRegist(User user) throws SQLException
 	{
 		// TODO Auto-generated method stub
-		UserDao userDao = new UserDaoImpl();
 		userDao.userRegist(user);
 	}
 
@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService
 	{
 		// TODO Auto-generated method stub
 		// 实现注册功能
-		UserDao userDao = new UserDaoImpl();
 		// 对DB发送select * from user where code = ?
 		User user = userDao.userActive(code);
 
@@ -47,7 +46,6 @@ public class UserServiceImpl implements UserService
 	public User userLogin(User user) throws SQLException
 	{
 		// TODO Auto-generated method stub
-		UserDao userDao = new UserDaoImpl();
 		User loginUser = userDao.userLogin(user);
 		// 此处也可以利用异常来在模块之间传递数据
 		if (loginUser == null)

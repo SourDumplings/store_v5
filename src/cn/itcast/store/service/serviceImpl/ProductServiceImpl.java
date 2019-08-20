@@ -3,15 +3,14 @@ package cn.itcast.store.service.serviceImpl;
 import java.util.List;
 
 import cn.itcast.store.dao.ProductDao;
-import cn.itcast.store.dao.daoImpl.ProductDaoImpl;
 import cn.itcast.store.domain.PageModel;
 import cn.itcast.store.domain.Product;
 import cn.itcast.store.service.ProductService;
+import cn.itcast.store.utils.BeanFactory;
 
 public class ProductServiceImpl implements ProductService
 {
-	private ProductDao productDao = new ProductDaoImpl();
-	
+	private ProductDao productDao = (ProductDao) BeanFactory.createObject("ProductDao");
 	
 	public List<Product> findNews() throws Exception
 	{
