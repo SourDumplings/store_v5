@@ -2,9 +2,12 @@
 	<!-- 默认配置，如果没有指定则使用这个配置 -->
 	<default-config>
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/store_07</property>
+		<!-- <property name="jdbcUrl">jdbc:mysql://localhost:3306/store_07</property> -->
+		<property name="jdbcUrl">jdbc:mysql://192.168.137.61:3306/store_07
+		</property>
 		<property name="user">root</property>
-		<property name="password">cz0929</property>
+		<!-- <property name="password">cz0929</property> -->
+		<property name="password">SourDumplings@163.com</property>
 		<property name="checkoutTimeout">30000</property>
 		<property name="idleConnectionTestPeriod">30</property>
 		<property name="initialPoolSize">10</property>
@@ -17,14 +20,17 @@
 			<property name="minPoolSize">1</property>
 			<property name="maxStatements">0</property>
 		</user-overrides>
-	</default-config> 
+	</default-config>
 	<!-- 命名的配置 -->
 	<named-config name="itcast">
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/store_07</property>
+		<!-- <property name="jdbcUrl">jdbc:mysql://localhost:3306/store_07</property> -->
+		<property name="jdbcUrl">jdbc:mysql://192.168.137.61:3306/store_07
+		</property>
 		<property name="user">root</property>
-		<property name="password">cz0929</property>
-    <!-- 如果池中数据连接不够时一次增长多少个 -->
+		<!-- <property name="password">cz0929</property -->
+		<property name="password">SourDumplings@163.com</property>
+		<!-- 如果池中数据连接不够时一次增长多少个 -->
 		<property name="acquireIncrement">5</property>
 		<property name="initialPoolSize">20</property>
 		<property name="minPoolSize">10</property>
